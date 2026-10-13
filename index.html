@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Untuk Munaroh 🦊</title>
+  <meta name="theme-color" content="#FFD3AD">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Caveat:wght@500;700&family=Nunito:wght@500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="card">
+
+    <div class="progress" aria-hidden="true"><div id="progressFill"></div></div>
+
+    <!-- Rubi si rubah: satu karakter yang bereaksi di tiap langkah -->
+    <div class="fox-window hiding" id="foxWindow">
+      <svg class="fox" viewBox="0 0 200 200" role="img" aria-label="Kepala rubah oranye yang lucu">
+        <polygon points="38,86 52,14 98,56" fill="#FF7A1A"/>
+        <polygon points="162,86 148,14 102,56" fill="#FF7A1A"/>
+        <polygon points="52,70 58,34 80,58" fill="#FFB98A"/>
+        <polygon points="148,70 142,34 120,58" fill="#FFB98A"/>
+        <polygon points="52,14 44,48 62,34" fill="#4A2412"/>
+        <polygon points="148,14 156,48 138,34" fill="#4A2412"/>
+        <path d="M100 54 L162 80 Q188 112 152 152 Q126 186 100 190 Q74 186 48 152 Q12 112 38 80 Z" fill="#FF7A1A"/>
+        <path d="M100 190 Q72 186 50 152 Q44 128 60 120 Q84 138 100 132 Q116 138 140 120 Q156 128 150 152 Q128 186 100 190Z" fill="#FFF6EC"/>
+        <ellipse class="blush" cx="64" cy="132" rx="11" ry="6" fill="#FF9E7A"/>
+        <ellipse class="blush" cx="136" cy="132" rx="11" ry="6" fill="#FF9E7A"/>
+        <g class="eyes">
+          <ellipse cx="74" cy="110" rx="7" ry="9" fill="#4A2412"/>
+          <ellipse cx="126" cy="110" rx="7" ry="9" fill="#4A2412"/>
+          <circle cx="76.5" cy="106" r="2.6" fill="#fff"/>
+          <circle cx="128.5" cy="106" r="2.6" fill="#fff"/>
+        </g>
+        <ellipse cx="100" cy="150" rx="8" ry="5.5" fill="#4A2412"/>
+        <path d="M100 156 Q93 168 84 162 M100 156 Q107 168 116 162" fill="none" stroke="#4A2412" stroke-width="3" stroke-linecap="round"/>
+      </svg>
+    </div>
+
+    <!-- 1. Rubi ngumpet -->
+    <section class="step" data-id="intro">
+      <h1>Halo, <span data-nama></span>.</h1>
+      <p>Ada rubah kecil yang lagi ngumpet di sini. Dia pemalu, jadi pencet tombolnya pelan-pelan ya.</p>
+      <div class="actions"><button class="btn" data-next>Pencet pelan-pelan</button></div>
+    </section>
+
+    <!-- 2. Rubi muncul -->
+    <section class="step" data-id="hello">
+      <h1>Dia keluar!</h1>
+      <p>Namaku Rubi. Aku ditugasi menyampaikan kabar penting, dan aku sudah latihan dari tadi pagi.</p>
+      <div class="actions"><button class="btn" data-next>Kabar apa?</button></div>
+    </section>
+
+    <!-- 3. Verifikasi -->
+    <section class="step" data-id="verify">
+      <h1>Cek identitas dulu.</h1>
+      <p>Rubi harus memastikan ini beneran <span data-nama></span>. Kamu <span data-nama></span>, kan?</p>
+      <div class="choices">
+        <button class="choice" data-reply="Cocok. Rubi hafal wangi orang yang suka rubah."><span>Iya, aku <span data-nama></span></span></button>
+        <button class="choice" data-reply="Bohong. Telinga Rubi nggak bisa dibohongi."><span>Bukan, aku orang lain</span></button>
+      </div>
+      <p class="reply" aria-live="polite"></p>
+      <div class="actions"><button class="btn" data-next data-gate disabled>Lanjut</button></div>
+    </section>
+
+    <!-- 4. Sertifikat -->
+    <section class="step" data-id="cert">
+      <h1>Selamat, <span data-nama></span>!</h1>
+      <div class="cert">
+        <p class="cert-title">Sertifikat Resmi Kerajaan Rubah</p>
+        <p class="cert-name" data-nama></p>
+        <p class="cert-body">dinobatkan sebagai <strong>Manusia Terlucu</strong> versi para rubah. Dasar penilaian: punya selera bagus (suka rubah) dan senyumnya bikin hari orang jadi enteng.</p>
+      </div>
+      <div class="actions"><button class="btn" data-next>Terima sertifikatnya</button></div>
+    </section>
+
+    <!-- 5-7. Kuis -->
+    <section class="step" data-id="q1">
+      <h1>Tes rubah, nomor 1 dari 3.</h1>
+      <p>Kalau ketemu rubah di jalan, kamu bakal...</p>
+      <div class="choices">
+        <button class="choice" data-key="a1" data-reply="Jawaban yang benar! Rubahnya langsung luluh. Aku juga."><span>Elus-elus kepalanya</span></button>
+        <button class="choice" data-key="a1" data-reply="Rubahnya kenyang, hatinya ikut kenyang."><span>Kasih dia camilan</span></button>
+        <button class="choice" data-key="a1" data-reply="Wajar. Rubahnya bakal pose terus sampai kamu puas."><span>Foto 200 kali dulu</span></button>
+      </div>
+      <p class="reply" aria-live="polite"></p>
+      <div class="actions"><button class="btn" data-next data-gate disabled>Lanjut</button></div>
+    </section>
+
+    <section class="step" data-id="q2">
+      <h1>Nomor 2 dari 3.</h1>
+      <p>Camilan apa yang paling cocok buat rubah?</p>
+      <div class="choices">
+        <button class="choice" data-key="a2" data-reply="Pilihan manis. Rubi sudah ngiler."><span>Buah beri</span></button>
+        <button class="choice" data-key="a2" data-reply="Klasik. Rubi nggak bisa bohong, dia suka."><span>Ayam goreng</span></button>
+        <button class="choice" data-key="a2" data-reply="Pilihan berani. Rubi catat, siapa tahu nanti perlu."><span>Martabak manis</span></button>
+      </div>
+      <p class="reply" aria-live="polite"></p>
+      <div class="actions"><button class="btn" data-next data-gate disabled>Lanjut</button></div>
+    </section>
+
+    <section class="step" data-id="q3">
+      <h1>Nomor 3, yang terakhir.</h1>
+      <p>Warna favorit rubah?</p>
+      <div class="choices">
+        <button class="choice" data-key="a3" data-reply="Benar sekali. Itu warna bulunya."><span>Oranye</span></button>
+        <button class="choice" data-key="a3" data-reply="Lembut dan hangat. Rubi setuju."><span>Peach</span></button>
+        <button class="choice" data-key="a3" data-reply="Rubi nggak ngerti caranya, tapi dia hormat."><span>Oranye yang lebih oranye</span></button>
+      </div>
+      <p class="reply" aria-live="polite"></p>
+      <div class="actions"><button class="btn" data-next data-gate disabled>Lihat hasilnya</button></div>
+    </section>
+
+    <!-- 8. Hasil kuis -->
+    <section class="step" data-id="qresult">
+      <h1>Hasil tes rubah.</h1>
+      <p>Kamu tipe <strong>Rubah Matahari</strong>.</p>
+      <p id="qResult" class="result"></p>
+      <div class="actions"><button class="btn" data-next>Lanjut</button></div>
+    </section>
+
+    <!-- 9. Game tangkap rubah -->
+    <section class="step" data-id="catch">
+      <h1>Rubi kabur!</h1>
+      <p>Anak-anak rubah lepas dari kandang. Tangkap 5 ekor sebelum mereka makin cepat.</p>
+      <div class="arena" id="arena">
+        <button class="catch" id="catchFox" aria-label="Tangkap rubah">🦊</button>
+      </div>
+      <p class="reply" id="catchScore" aria-live="polite">Tertangkap: 0 dari 5</p>
+      <div class="actions"><button class="btn" data-next id="catchNext" disabled>Lanjut</button></div>
+    </section>
+
+    <!-- 10. Alat ukur -->
+    <section class="step" data-id="meter">
+      <h1>Ukur kelucuan.</h1>
+      <p id="meterText">Rubi menyalakan alat ukur kelucuan, tunggu sebentar...</p>
+      <div class="meter" id="meter" aria-hidden="true"><div class="meter-fill" id="meterFill"></div></div>
+      <p class="meter-num" id="meterNum">0%</p>
+      <div class="actions"><button class="btn" data-next id="meterNext" disabled>Lanjut</button></div>
+    </section>
+
+    <!-- 11. Kartu -->
+    <section class="step" data-id="cards">
+      <h1>Pilih satu kartu.</h1>
+      <p>Rubi nyimpen tiga kartu rahasia. Cuma boleh buka satu.</p>
+      <div class="cards" id="cards">
+        <button class="flip" data-title="Senyum" data-msg="Senyummu bisa bikin rubah paling galak jadi lemas." aria-label="Kartu 1"><span class="flip-inner"><span class="face front">🍊</span><span class="face back">Kartu Senyum</span></span></button>
+        <button class="flip" data-title="Tawa" data-msg="Tawamu itu suara paling enak didengar sehabis hujan." aria-label="Kartu 2"><span class="flip-inner"><span class="face front">🍑</span><span class="face back">Kartu Tawa</span></span></button>
+        <button class="flip" data-title="Ngangenin" data-msg="Ada orang yang diam-diam nungguin balasan chat darimu." aria-label="Kartu 3"><span class="flip-inner"><span class="face front">🧡</span><span class="face back">Kartu Ngangenin</span></span></button>
+      </div>
+      <p class="reply" id="cardMsg" aria-live="polite"></p>
+      <div class="actions"><button class="btn" data-next id="cardNext" disabled>Lanjut</button></div>
+    </section>
+
+    <!-- 12. Surat -->
+    <section class="step" data-id="letter">
+      <h1>Ada surat buatmu.</h1>
+      <div class="paper" id="paper" title="Pencet untuk langsung menampilkan semua"></div>
+      <p class="hint">Pencet kertasnya kalau mau langsung baca semua.</p>
+      <div class="actions"><button class="btn" data-next id="letterNext" disabled>Lanjut</button></div>
+    </section>
+
+    <!-- 13. Slider -->
+    <section class="step" data-id="slider">
+      <h1>Seberapa kangen kamu sama rubah?</h1>
+      <p>Geser sesuai perasaanmu. Jujur ya, Rubi bisa mencium kebohongan.</p>
+      <div class="slider-wrap">
+        <input type="range" id="kangen" min="0" max="100" value="0" aria-label="Tingkat kangen sama rubah">
+        <p class="meter-num" id="kangenNum">0%</p>
+        <p class="reply" id="kangenText" aria-live="polite">Geser dulu dong.</p>
+      </div>
+      <div class="actions"><button class="btn" data-next id="sliderNext" disabled>Lanjut</button></div>
+    </section>
+
+    <!-- 14. Ramalan -->
+    <section class="step" data-id="fortune">
+      <h1>Ramalan Rubi hari ini.</h1>
+      <p>Rubi punya bola kristal. Bolanya agak retak, tapi akurat.</p>
+      <ol class="fortune" id="fortune">
+        <li>Hari ini kamu akan tersenyum minimal 3 kali. Yang pertama sudah lewat.</li>
+        <li>Ada seseorang yang akan mengajakmu keluar. Dia gugup, tolong dimaklumi.</li>
+        <li>Orang itu ada hubungannya dengan link yang lagi kamu buka sekarang.</li>
+      </ol>
+      <div class="actions"><button class="btn" id="fortuneBtn">Buka ramalan</button></div>
+    </section>
+
+    <!-- 15. Izin bertanya -->
+    <section class="step" data-id="ask">
+      <h1>Rubi mau nanya yang agak serius.</h1>
+      <p>Boleh?</p>
+      <div class="actions two">
+        <button class="btn" id="askYes" data-next>Boleh</button>
+        <button class="btn btn-ghost" id="askNo">Nggak boleh</button>
+      </div>
+      <p class="reply" id="askReply" aria-live="polite"></p>
+    </section>
+
+    <!-- 16. Pertanyaan utama -->
+    <section class="step" data-id="final">
+      <h1><span data-nama></span>, mau nggak jalan bareng <span data-pengirim></span>?</h1>
+      <p>Rubi ikut jadi saksi, dan dia janji nggak ngomong ke siapa-siapa.</p>
+      <div class="final-box" id="finalBox">
+        <div class="final-row">
+          <button class="btn" id="yesBtn">Mau</button>
+          <button class="btn btn-ghost" id="thinkBtn">Mikir dulu</button>
+        </div>
+        <button class="btn btn-ghost" id="noBtn">Nggak</button>
+      </div>
+      <p class="reply" id="dodgeText" aria-live="polite"></p>
+    </section>
+
+    <!-- 17. Rencana -->
+    <section class="step" data-id="plan">
+      <h1>Oke, kita atur rencananya.</h1>
+      <p>Rubi sudah siapin buku catatan. Pilih satu untuk tiap pertanyaan.</p>
+      <p class="q-label">Mau ngapain?</p>
+      <div class="pills" data-key="tempat">
+        <button class="pill">Ngopi santai</button>
+        <button class="pill">Makan enak</button>
+        <button class="pill">Nonton film</button>
+        <button class="pill">Jalan-jalan sore</button>
+      </div>
+      <p class="q-label">Kapan?</p>
+      <div class="pills" data-key="waktu">
+        <button class="pill">Akhir pekan siang</button>
+        <button class="pill">Akhir pekan sore</button>
+        <button class="pill">Malam hari</button>
+        <button class="pill">Terserah kamu</button>
+      </div>
+      <div class="actions"><button class="btn" id="planSend" disabled>Catat rencananya</button></div>
+    </section>
+
+    <!-- 18. Akhir -->
+    <section class="step" data-id="end">
+      <h1>Yeay!</h1>
+      <p class="big">Rubi lompat-lompat senang.</p>
+      <div class="summary">
+        <p class="summary-title">Rencana resmi</p>
+        <p class="summary-plan" id="summaryPlan"></p>
+        <p class="summary-by">Disaksikan oleh Rubi 🦊</p>
+      </div>
+      <p id="endHint">Screenshot layar ini, lalu kirim ke <span data-pengirim></span> ya, <span data-nama></span>.</p>
+      <div class="actions two">
+        <a class="btn" id="waBtn" href="#" target="_blank" rel="noopener" hidden>Kirim lewat WhatsApp</a>
+        <button class="btn btn-ghost" id="replay">Main lagi dari awal</button>
+      </div>
+    </section>
+
+  </main>
+
+  <div class="confetti" id="confetti" aria-hidden="true"></div>
+  <script src="script.js"></script>
+</body>
+</html>
